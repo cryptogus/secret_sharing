@@ -43,7 +43,8 @@ int main(int argc, char *argv[])
         usage();
         return -2;
     }
-process:
+// https://www.educative.io/answers/resolving-the-a-label-can-only-be-part-of-a-statement-error
+process: ;
 
     Loca driver;
     driver.lat_ = atof(argv[1]);
