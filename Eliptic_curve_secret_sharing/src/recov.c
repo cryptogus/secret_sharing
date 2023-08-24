@@ -37,7 +37,7 @@ void interpolation(uint64_t m, BIGNUM ***point_p, BIGNUM *secret)
     BN_CTX_free(ctx);
 }
 
-double recovery(uint64_t m, EC_GROUP *curve, EC_POINT *generator, BIGNUM *secret)
+int64_t recovery(uint64_t m, EC_GROUP *curve, EC_POINT *generator, BIGNUM *secret)
 {
     BIGNUM *x = BN_new();
     BN_CTX *ctx = BN_CTX_new();
