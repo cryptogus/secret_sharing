@@ -37,7 +37,7 @@ void interpolation(uint64_t m, BIGNUM ***point_p, BIGNUM *secret)
     BN_CTX_free(ctx);
 }
 
-int64_t recovery(uint64_t m, EC_GROUP *curve, EC_POINT *generator, BIGNUM *secret)
+BIGNUM *recovery(uint64_t m, EC_GROUP *curve, EC_POINT *generator, BIGNUM *secret)
 {
     BIGNUM *x = BN_new();
     BN_CTX *ctx = BN_CTX_new();
@@ -65,14 +65,13 @@ int64_t recovery(uint64_t m, EC_GROUP *curve, EC_POINT *generator, BIGNUM *secre
     /* Get secret S from S*/
 
     EC_POINT_get_affine_coordinates(curve, secret_point, x, NULL, ctx);
-    int64_t buf = (int64_t)strtol(BN_bn2dec(x), NULL, 10);
 
-    BN_free(x);
+    //BN_free(x);
     BN_free(b_m_);
 
     EC_POINT_free(secret_point);
     EC_POINT_free(point);
     BN_CTX_free(ctx);
 
-    return buf;
+    return x;
 }

@@ -78,9 +78,9 @@ int main(int argc, char *argv[])
     interpolation(m, point_p, recovery_sec);
     printf("\n복구한 y절편: %s\n\n", BN_bn2hex(recovery_sec));
 
-    int64_t answer = recovery(m, curve, generator, recovery_sec);
+    BIGNUM *answer = recovery(m, curve, generator, recovery_sec);
 
-    printf("복구된 비밀 값: %ld\n", answer);
+    printf("복구된 비밀 값: %s\n", BN_bn2dec(answer));
     
     // 에러 정보 출력
     // ERR_print_errors_fp(stderr);
@@ -102,6 +102,7 @@ int main(int argc, char *argv[])
     
     BN_free(sec2);
     BN_free(recovery_sec);
+    BN_free(answer);
     
 
     return 0;
