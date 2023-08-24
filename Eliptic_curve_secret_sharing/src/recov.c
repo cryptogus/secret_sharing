@@ -74,5 +74,5 @@ int64_t recovery(uint64_t m, EC_GROUP *curve, EC_POINT *generator, BIGNUM *secre
     EC_POINT_free(point);
     BN_CTX_free(ctx);
 
-    return (double)buf / 100000000;
+    return buf;
 }
