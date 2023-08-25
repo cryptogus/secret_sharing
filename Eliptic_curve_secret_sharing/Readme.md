@@ -16,3 +16,9 @@ Third
 secp256k1 is using 256-bit prime number.  
 So $$S+3G = (256bits, 256bits)$$ convert to $$256bits||256bits$$ by bitwise shifting.  
 Then we create 512bits number.
+
+```bash
+$ cmake -G Ninja -S ./ -B build
+$ cd build
+$ ninja -v
+```
