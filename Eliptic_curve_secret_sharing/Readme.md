@@ -8,7 +8,7 @@ Let m = 3 and generator of elliptic curve group = G (G is point on curve) and se
 
 $$ a_3x^3 + a_2x^2 + a_1x + S + 3G$$
 
-First of all
+First of all|
 $$mG (m = 3)$$
 Second  
 S convert to (S, 1)  
@@ -22,3 +22,5 @@ $ cmake -G Ninja -S ./ -B build
 $ cd build
 $ ninja -v
 ```
+
+I recommand that m < 1200 in main.c
